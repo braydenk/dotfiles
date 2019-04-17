@@ -14,7 +14,7 @@ call plug#begin()
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'neomake/neomake'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 call plug#end()
 
@@ -50,6 +50,7 @@ set number              " show line numbers
 set showcmd             " show command in bottom bar
 set lazyredraw          " only redraw when necessary
 set ttyfast             " faster redrawing
+set scrolloff=1         " number of lines to keep above and below the cursor
 
 
 """""""""""""""""""""""
@@ -66,16 +67,15 @@ colorscheme nord        " looks good!
 """""""""""""""""""""""
 " Indentation Configuration
 """"""""""""""""""""""""""""""
-set expandtab           " use tabs instead of spaces
-set smarttab            " be smart about your tabbing
+set expandtab           " convert tabs to spaces
+set smarttab            " insert tabstop when <TAB> is pressed 
 set shiftwidth=4        " 1 tab == 4 spaces
-set tabstop=4
+set tabstop=4           " indent using 4 spaces
 
-set autoindent
+set autoindent          " inherit indentation of previous line
 set smartindent
 
 filetype indent on      " indentation based upon filetype
-
 
 """"""""""""""""""""""""""""""
 " Keymappings
