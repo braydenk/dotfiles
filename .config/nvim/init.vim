@@ -1,63 +1,94 @@
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number              " Show line numbers
+set encoding=utf-8      " encoding used to display
+set fileencoding=utf-8  " encoding written to files
+set ttyfast             " faster redrawing
+set lazyredraw          " only redraw when necessary
+set cursorline          " highlight the current line
+set showmatch           " highlight matching parentheses
+set laststatus=2        " always show the status line
+set visualbell          " cursor will blink on error
+syntax on               " enable syntax highlighting
+set nowrap              " don't wrap long lines
 
-set encoding=utf-8          " The encoding displayed
-set fileencoding=utf-8      " The encoding written to file
-syntax on                   " Enable syntax highlight
-set ttyfast                 " Faster redrawing
-set lazyredraw              " Only redraw when necessary
-set cursorline              " Find the current line quickly.
 
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => Visual Related Configs
-"""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 256 colors
-set t_Co=256
+call plug#begin()
 
-" set colorscheme
-colorscheme nord
+" nord-vim colorscheme
+Plug 'arcticicestudio/nord-vim'
 
-" long lines as just one line (have to scroll horizontally)
-set nowrap
+" neomake
+Plug 'neomake/neomake'
 
-" line numbers
-set relativenumber
-set number
+" NERDTree
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" show the status line all the time
-set laststatus=2
+call plug#end()
 
-" toggle invisible characters
-set invlist
-set list
 
-" disable scrollbars (real hackers don't use scrollbars)
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin configurations
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""
-" => Indentation
-"""""""""""""""""""""""""""""""""""""""""""""""
+" neomake async hooks
+call neomake#configure#automake('w')
 
-" Use spaces instead of tabs
-set expandtab
+" Open NERDTree on startup
+" autocmd vimenter * NERDTree
+" NERDTree
+let NERDTreeShowHidden=1
+map <silent> <C-n> :NERDTreeToggle<CR>
 
-" Be smart when using tabs ;)
-" :help smarttab
-set smarttab
+" close NERDTree once a file is opened
+let g:NERDTreeQuitOnOpen=1
 
-" 1 tab == 4 spaces
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Visual Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set t_Co=256 " 256 colors
+colorscheme nord " set colorscheme
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" dont use arrowkeys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+
+" copy and paste to/from vim and the clipboard
+nnoremap <C-y> +y
+vnoremap <C-y> +y
+nnoremap <C-p> +P
+vnoremap <C-p> +P
+
+set clipboard=unnamed " access system clipboard
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set expandtab " 
+set smarttab " checkout - :help smarttab
 set shiftwidth=4
 set tabstop=4
+set autoindent
+set smartindent
 
-" Auto indent
-" Copy the indentation from the previous line when starting a new line
-set ai
-
-" Smart indent
-" Automatically inserts one extra level of indentation in some cases, and works for C-like files
-set si

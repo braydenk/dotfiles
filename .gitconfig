@@ -2,23 +2,3 @@
     name = Brayden Killeen
     email = braydenmkilleen@gmail.com
     username = braydenk
-
-[core]
-    editor = nvim
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfiles= ~/.gitignore
-
-[credential]
-    helper = store
-
-[merge]
-    tool = vimdiff
-
-[mergetool]
-    prompt = true
-
-[mergetool "vimdiff"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'windcmd J'
-
-[pull]
-    rebase = true

@@ -59,7 +59,7 @@ brew install vim
 brew install neovim
 nvim +PlugClean! +qall
 nvim +silent +PlugInstall +qall
-# python3 ~/.config/nvim/plugged/YouCompleteMe/install.py
+python3 ~/.config/nvim/plugged/YouCompleteMe/install.py
 
 # vim's best friend
 brew install tmux
