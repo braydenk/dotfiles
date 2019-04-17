@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Orginally from Mathias Bynens
+# https://github.com/mathiasbynens/dotfiles/blob/bb6c76e410bf7b1693edfe60239461fc9205ec02/bootstrap.sh
+
 cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
@@ -7,10 +10,9 @@ git pull origin master;
 function doIt() {
 	      rsync --exclude ".git/" \
                 --exclude ".DS_Store" \
+                --exclude ".macos" \
                 --exclude "install.sh" \
                 --exclude "README.md" \
-                --exclude "LICENSE" \
-                --exclude "terminal-demo.png" \
                 -avh --no-perms . ~;
         source ~/.bash_profile;
 }
