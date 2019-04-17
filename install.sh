@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
-# Originally from Mathias Bynens
-# https://github.com/mathiasbynens/dotfiles/blob/b22c32290e1518c0f228afba254ee6a3f6ab6d7a/bootstrap.sh
-
 cd "$(dirname "${BASH_SOURCE}")";
 
 git pull origin master;
 
 function doIt() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude "boostrap.sh" \
-		-avh --no-perms . ~;
-	source ~/.bash_profile;
+	      rsync --exclude ".git/" \
+                --exclude ".DS_Store" \
+                --exclude "install.sh" \
+                --exclude "README.md" \
+                --exclude "LICENSE" \
+                --exclude "terminal-demo.png" \
+                -avh --no-perms . ~;
+        source ~/.bash_profile;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
