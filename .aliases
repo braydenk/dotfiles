@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# Always use Neovim
 alias vim="nvim"
 alias vimdiff="nvim -d"
+
+# Recursively delete `.DS_Store` files
+
