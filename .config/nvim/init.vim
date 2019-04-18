@@ -3,7 +3,7 @@
 """""""""""""""""""""""
 set encoding=utf-8      " encoding used to display
 set fileencoding=utf-8  " encoding written to files
-set history=500         " how many lines vim will remember
+set history=50          " how many lines vim will remember
 set laststatus=2        " always show the status line
 set visualbell          " cursor blinks on error
 
@@ -15,6 +15,8 @@ call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -36,8 +38,14 @@ let g:nord_italic=1
 let g:nord_underline=1
 let g:nord_italic_comments=1
 let g:nord_uniform_status_line=1
-"let g:nord_cursor_line_number_background=1
+let g:nord_cursor_line_number_background=1
 let g:nord_uniform_diff_background=1
+
+" lightline configuration
+let g:lightline = {
+    \ 'colorscheme': 'nord',
+    \}
+
 
 """""""""""""""""""""""
 " User Interface
@@ -45,24 +53,21 @@ let g:nord_uniform_diff_background=1
 set wildmenu            " visual autocomplete when entering commands
 set showmatch           " highlight matching brackets
 set cursorline          " highlight current line
-set nowrap              " don't wrap long lines
+set wrap              " don't wrap long lines
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 set lazyredraw          " only redraw when necessary
 set ttyfast             " faster redrawing
 set scrolloff=1         " number of lines to keep above and below the cursor
-
+set noshowmode          " remove status line
 
 """""""""""""""""""""""
 " Theme and Colours 
 """""""""""""""""""""""
-" TODO: difference b/w syntax enable/on
 syntax enable           " enable syntax highlighting
 set t_Co=256            " enable 256 color palette
 
-colorscheme nord        " looks good!
-" set background=dark
-
+colorscheme nord        " theme 
 
 """""""""""""""""""""""
 " Indentation Configuration
@@ -76,6 +81,7 @@ set autoindent          " inherit indentation of previous line
 set smartindent
 
 filetype indent on      " indentation based upon filetype
+
 
 """"""""""""""""""""""""""""""
 " Keymappings

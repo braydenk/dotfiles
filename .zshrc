@@ -54,6 +54,5 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-
 # Use nvim as the default editor
 export EDITOR=nvim
