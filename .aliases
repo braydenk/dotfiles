@@ -4,5 +4,5 @@
 alias vim="nvim"
 alias vimdiff="nvim -d"
 
-# Recursively delete `.DS_Store` files
-
+# Reload the shell
+alias reload='. ~/.zshrc'
